@@ -1,3 +1,3 @@
 # plages_vivantes
 
-oioioi
+fantastic
