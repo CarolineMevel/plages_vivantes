@@ -18,7 +18,7 @@ public class Protocole extends AppCompatActivity {
         setContentView(R.layout.activity_protocole);
 
         Button btnCamera = (Button)findViewById(R.id.btnCamera);
-        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        imageView = (ImageView) findViewById(R.id.imageView);
 
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
