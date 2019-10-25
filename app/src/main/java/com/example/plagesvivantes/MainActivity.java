@@ -21,5 +21,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Protocole.class);
         startActivity(intent);
     }
-    //derniertestdejfuirj
 }

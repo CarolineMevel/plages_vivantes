@@ -49,7 +49,7 @@ public class Protocole extends AppCompatActivity {
         listener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                t.setText("Longitude: "+ location.getLongitude() + "\n Latitude: " + location.getLatitude());
+                t.setText("Longitude: " + location.getLongitude() + "\n Latitude: " + location.getLatitude());
             }
 
             @Override
@@ -79,10 +79,8 @@ public class Protocole extends AppCompatActivity {
                 startActivityForResult(intent, 0);
 
             }
-            });
+        });
     }
-
-
 
 
     @Override
@@ -111,13 +109,17 @@ public class Protocole extends AppCompatActivity {
     }
 
 
-
     //AFFICHAGE IMAGE
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Bitmap bitmap = (Bitmap) data.getExtras().get("data");
         imageView.setImageBitmap(bitmap);
+        Button btnContinuer = findViewById(R.id.btnContinuer);
+        btnContinuer.setVisibility(View.VISIBLE);
+
+
         //DATE
         Thread t = new Thread() {
             @Override
@@ -132,7 +134,7 @@ public class Protocole extends AppCompatActivity {
                         long date = System.currentTimeMillis();
                         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy à hh:mm:ss a");
                         String dateString = sdf.format(date);
-                        tdate.setText("Photo prise le:\n"+dateString);
+                        tdate.setText("Photo prise le:\n" + dateString);
                         //GPS
                         //noinspection MissingPermission
                         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -145,9 +147,7 @@ public class Protocole extends AppCompatActivity {
                             // for Activity#requestPermissions for more details.
                             return;
                         }
-                        locationManager.requestLocationUpdates("gps", 10, 999999999, listener);
-
-
+                        locationManager.requestLocationUpdates("gps", 1, 999999999, listener);
 
 
                     }
@@ -157,5 +157,9 @@ public class Protocole extends AppCompatActivity {
         t.start();
     }
 
+    public void launchIdentification(View view) {
+        Intent intent = new Intent(this, Identification.class);
+        startActivity(intent);
 
+    }
 }

@@ -3,8 +3,7 @@
     package="com.example.plagesvivantes">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    //gps permission
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -13,13 +12,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Protocole"
-        android:label = "Second Activity"
-        android:parentActivityName=".MainActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=
-                "com.example.plagesvivantes.MainActivity" />
+        <activity
+            android:name=".Identification"
+            android:label="Identification"
+            android:parentActivityName=".Protocole">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.plagesvivantes.Protocole" />
+        </activity>
+        <activity
+            android:name=".Protocole"
+            android:label="Prise de photo"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.plagesvivantes.MainActivity" />
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>

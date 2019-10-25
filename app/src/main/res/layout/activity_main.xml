@@ -26,11 +26,14 @@
         android:layout_width="250sp"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_green_light"
+        android:onClick="launchSecondActivity"
         android:text="Saisir une observation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="launchSecondActivity"/>
+        app:layout_constraintVertical_bias="0.5
+" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
