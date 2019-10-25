@@ -15,17 +15,31 @@
         android:id="@+id/imageView"
         android:layout_weight="9"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="fill_parent"
+        android:contentDescription="Photo prise" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:gravity="center"
+        android:textSize="20sp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="20sp"
+        android:id="@+id/textView" />
 
     <Button
         android:id="@+id/btnCamera"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:background="@android:color/holo_red_dark"
-        android:textColor="@android:color/white"
         android:text="Open Camera"
-        />
-
+        android:textColor="@android:color/white" />
 
 </LinearLayout>
