@@ -23,6 +23,9 @@ public class Algue {
         return nomLatin;
     }
 
-
+    /** permet d'écrire l'algue dans les menus déroulant comme dans identification par exemple **/
+    public String toString(){
+        return this.getRef() + " - " + this.getNomLatin() + " - " + this.getNomCommun();
+    }
 
 }
