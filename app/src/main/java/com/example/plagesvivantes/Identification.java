@@ -58,8 +58,16 @@ public class Identification extends AppCompatActivity {
 
     public void algueConnue(View view) {
         connue = true;
+
+        Button connuButton = findViewById(R.id.button2);
+        connuButton.setEnabled(false);
+        Button nonConnuButton = findViewById(R.id.button3);
+        nonConnuButton.setEnabled(false);
+
         TextView Xper = findViewById(R.id.Xper);
         Xper.setText("");
+        Button nonId = findViewById(R.id.nonId);
+        nonId.setEnabled(false);
         TextView textPhoto = findViewById(R.id.photo);
         textPhoto.setText("3. Prendre une photo de l'algue (facultatif)");
         AutoCompleteTextView choixAlgue = findViewById(R.id.choixAlgue);
@@ -69,7 +77,7 @@ public class Identification extends AppCompatActivity {
         RadioButton choixAbondance1 = findViewById(R.id.ab1);
         choixAbondance1.setEnabled(true);
         RadioButton choixAbondance2 = findViewById(R.id.ab2);
-        choixAbondance1.setEnabled(true);
+        choixAbondance2.setEnabled(true);
         RadioButton choixAbondance3 = findViewById(R.id.ab3);
         choixAbondance3.setEnabled(true);
         RadioButton choixAbondance4 = findViewById(R.id.ab4);
@@ -81,6 +89,12 @@ public class Identification extends AppCompatActivity {
 
     public void algueNonConnue(View view) {
         connue = false;
+
+        Button connuButton = findViewById(R.id.button2);
+        connuButton.setEnabled(false);
+        Button nonConnuButton = findViewById(R.id.button3);
+        nonConnuButton.setEnabled(false);
+
         TextView Xper = findViewById(R.id.Xper);
         Xper.setText("J'essaie d'identifier avec Xper");
         TextView textPhoto = findViewById(R.id.photo);
@@ -94,7 +108,7 @@ public class Identification extends AppCompatActivity {
         RadioButton choixAbondance1 = findViewById(R.id.ab1);
         choixAbondance1.setEnabled(true);
         RadioButton choixAbondance2 = findViewById(R.id.ab2);
-        choixAbondance1.setEnabled(true);
+        choixAbondance2.setEnabled(true);
         RadioButton choixAbondance3 = findViewById(R.id.ab3);
         choixAbondance3.setEnabled(true);
         RadioButton choixAbondance4 = findViewById(R.id.ab4);
