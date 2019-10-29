@@ -13,8 +13,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="384dp"
-        android:layout_height="500dp"
+        android:layout_width="match_parent"
+        android:layout_height="327dp"
         android:layout_weight="9"
         android:contentDescription="Photo prise" />
 
