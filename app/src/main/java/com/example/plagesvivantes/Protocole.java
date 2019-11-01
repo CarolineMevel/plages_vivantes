@@ -27,7 +27,6 @@ import java.text.SimpleDateFormat;
 
 public class Protocole extends AppCompatActivity {
 
-
     ImageView imageView;
     TextView t;
     LocationManager locationManager;
