@@ -147,7 +147,7 @@ public class Identification extends AppCompatActivity {
         return choixAlgue.getText().toString();
     }
 
-    /** PAS DU TOUT FINI **/
+    /** PAS FINI **/
     public void validation(View view){
         if (abondance == -1){
             String msg = "Remplissez un indice d'abondance";
@@ -163,8 +163,8 @@ public class Identification extends AppCompatActivity {
             else {
                 if (algue == null){
                     Observation obs = new Observation(1, null, abondance , null , false);
-                    //Intent intent = new Intent(this, Resume.class);
-                    //startActivity(intent);
+                    Intent intent = new Intent(this, Resume.class);
+                    startActivity(intent);
                 }
                 else {
                     String textAlgue = this.getTextAlgue();
@@ -177,8 +177,8 @@ public class Identification extends AppCompatActivity {
                         /** A remplir quand on aura les bonnes valeurs d'algues **/
                         Algue algue = new Algue(textAlgue,textAlgue,textAlgue);
                         Observation obs = new Observation(1 , algue , abondance , null , false);
-                        //Intent intent = new Intent(this, Resume.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(this, Resume.class);
+                        startActivity(intent);
                     }
                 }
             }
@@ -194,8 +194,8 @@ public class Identification extends AppCompatActivity {
                 /** A remplir quand on aura les bonnes valeurs d'algues **/
                 Algue algue = new Algue(textAlgue,textAlgue,textAlgue);
                 Observation obs = new Observation(1 , algue , abondance , null , true);
-                //Intent intent = new Intent(this, Resume.class);
-                //startActivity(intent);
+                Intent intent = new Intent(this, Resume.class);
+                startActivity(intent);
             }
         }
     }

@@ -21,6 +21,14 @@
                 android:value="com.example.plagesvivantes.Protocole" />
         </activity>
         <activity
+            android:name=".Resume"
+            android:label="Resume"
+            android:parentActivityName=".Resume">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.plagesvivantes.Resume" />
+        </activity>
+        <activity
             android:name=".Protocole"
             android:label="Prise de photo"
             android:parentActivityName=".MainActivity">
