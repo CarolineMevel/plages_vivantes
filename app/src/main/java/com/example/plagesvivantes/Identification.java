@@ -2,6 +2,7 @@ package com.example.plagesvivantes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -148,16 +149,54 @@ public class Identification extends AppCompatActivity {
 
     /** PAS DU TOUT FINI **/
     public void validation(View view){
-        String textAlgue = this.getTextAlgue();
         if (abondance == -1){
             String msg = "Remplissez un indice d'abondance";
             Toast t = Toast.makeText(this , msg , Toast.LENGTH_LONG);
             t.show();
         }
-        else if (!connue && photo == null){
-            String msg = "Si vous ne connaissez pas l'algue vous devez ajouter une photo";
-            Toast t = Toast.makeText(this , msg , Toast.LENGTH_LONG);
-            t.show();
+        else if (!connue){
+            if (photo == null){
+                String msg = "Si vous ne connaissez pas l'algue vous devez ajouter une photo";
+                Toast t = Toast.makeText(this , msg , Toast.LENGTH_LONG);
+                t.show();
+            }
+            else {
+                if (algue == null){
+                    Observation obs = new Observation(1, null, abondance , null , false);
+                    //Intent intent = new Intent(this, Resume.class);
+                    //startActivity(intent);
+                }
+                else {
+                    String textAlgue = this.getTextAlgue();
+                    if (textAlgue.length() == 0){
+                        String msg = "Choisissez une algue";
+                        Toast t = Toast.makeText(this , msg , Toast.LENGTH_LONG);
+                        t.show();
+                    }
+                    else {
+                        /** A remplir quand on aura les bonnes valeurs d'algues **/
+                        Algue algue = new Algue(textAlgue,textAlgue,textAlgue);
+                        Observation obs = new Observation(1 , algue , abondance , null , false);
+                        //Intent intent = new Intent(this, Resume.class);
+                        //startActivity(intent);
+                    }
+                }
+            }
+        }
+        else {
+            String textAlgue = this.getTextAlgue();
+            if (textAlgue.length() == 0){
+                String msg = "Choisissez une algue";
+                Toast t = Toast.makeText(this , msg , Toast.LENGTH_LONG);
+                t.show();
+            }
+            else {
+                /** A remplir quand on aura les bonnes valeurs d'algues **/
+                Algue algue = new Algue(textAlgue,textAlgue,textAlgue);
+                Observation obs = new Observation(1 , algue , abondance , null , true);
+                //Intent intent = new Intent(this, Resume.class);
+                //startActivity(intent);
+            }
         }
     }
 }

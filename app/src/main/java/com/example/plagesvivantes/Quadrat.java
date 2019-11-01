@@ -42,6 +42,10 @@ public class Quadrat {
         listObs.add(obs) ;
     }
 
+    public int nextNum(){
+        return this.getListObs().size() + 1 ;
+    }
+
 
     /** peut être utilisé pour écrire toutes les observations les unes  la suite des autres **/
     public String toString(){
