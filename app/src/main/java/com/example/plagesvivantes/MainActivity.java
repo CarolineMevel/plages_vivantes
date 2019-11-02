@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchSecondActivity(View view) {
+        Quadrat newQuadrat = new Quadrat();
+        ((MyApplication) this.getApplication()).setQuadrat(newQuadrat);
         Log.d(LOG_TAG, "Button clicked!");
         Intent intent = new Intent(this, Protocole.class);
         startActivity(intent);

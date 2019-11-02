@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 public class Identification extends AppCompatActivity {
     boolean connue ;
+    int numAlgue ;
     Algue algue;
     int abondance;
     ImageView photo;
@@ -26,6 +27,11 @@ public class Identification extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identification);
+
+        numAlgue = ((MyApplication) this.getApplication()).getQuadrat().nextNum();
+
+        TextView nom = findViewById(R.id.textNumAlgue);
+        nom.setText("Algue n°" + numAlgue + " :");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line , ALGUES );
         AutoCompleteTextView choixAlgue = findViewById(R.id.choixAlgue);
@@ -162,7 +168,10 @@ public class Identification extends AppCompatActivity {
             }
             else {
                 if (algue == null){
-                    Observation obs = new Observation(1, null, abondance , null , false);
+                    Observation obs = new Observation( numAlgue, null, abondance , null , false);
+                    Quadrat quadrat = ((MyApplication) this.getApplication()).getQuadrat();
+                    quadrat.addObs(obs);
+                    ((MyApplication) this.getApplication()).setQuadrat(quadrat);
                     Intent intent = new Intent(this, Resume.class);
                     startActivity(intent);
                 }
@@ -176,7 +185,10 @@ public class Identification extends AppCompatActivity {
                     else {
                         /** A remplir quand on aura les bonnes valeurs d'algues **/
                         Algue algue = new Algue(textAlgue,textAlgue,textAlgue);
-                        Observation obs = new Observation(1 , algue , abondance , null , false);
+                        Observation obs = new Observation( numAlgue , algue , abondance , null , false);
+                        Quadrat quadrat = ((MyApplication) this.getApplication()).getQuadrat();
+                        quadrat.addObs(obs);
+                        ((MyApplication) this.getApplication()).setQuadrat(quadrat);
                         Intent intent = new Intent(this, Resume.class);
                         startActivity(intent);
                     }
@@ -193,7 +205,10 @@ public class Identification extends AppCompatActivity {
             else {
                 /** A remplir quand on aura les bonnes valeurs d'algues **/
                 Algue algue = new Algue(textAlgue,textAlgue,textAlgue);
-                Observation obs = new Observation(1 , algue , abondance , null , true);
+                Observation obs = new Observation( numAlgue , algue , abondance , null , true);
+                Quadrat quadrat = ((MyApplication) this.getApplication()).getQuadrat();
+                quadrat.addObs(obs);
+                ((MyApplication) this.getApplication()).setQuadrat(quadrat);
                 Intent intent = new Intent(this, Resume.class);
                 startActivity(intent);
             }

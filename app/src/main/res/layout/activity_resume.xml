@@ -3,18 +3,42 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/finir"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="endAll"
-        android:text="Finir" />
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    <Button
-        android:id="@+id/newObs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="newObs"
-        android:text="Nouvelle Observation" />
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="1">
+
+            <TextView
+                android:id="@+id/resumeQuadrat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FC000000"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/newObs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="newObs"
+                android:text="Nouvelle Observation"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/finir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="endAll"
+                android:text="Finir"
+                android:textSize="16sp" />
+
+        </TableLayout>
+    </ScrollView>
+
+
 
 </LinearLayout>
