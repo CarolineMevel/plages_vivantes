@@ -21,6 +21,22 @@ public class Quadrat {
         date = d ;
     }
 
+    public Quadrat(){
+        this(null,null,null);
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setGPS(Location GPS) {
+        this.GPS = GPS;
+    }
+
+    public void setPhoto(ImageView photo) {
+        this.photo = photo;
+    }
+
     public ImageView getPhoto() {
         return photo;
     }
@@ -54,7 +70,7 @@ public class Quadrat {
         }
         String res = "";
         for (Observation o : this.getListObs()){
-            res += o.toString() + "/n/n";
+            res += "  " + o.toString() + "\n\n";
         }
         return res;
     }

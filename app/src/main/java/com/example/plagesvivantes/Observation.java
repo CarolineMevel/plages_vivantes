@@ -41,6 +41,6 @@ public class Observation {
 
     /** permet d'écrire les observations dans celle enregistrées **/
     public String toString(){
-        return  "Algue n°" + this.getNumero() + " : " + this.getAlgue().getNomLatin() + "Abondance : " + this.getAbondance();
+        return  "Algue n°" + this.getNumero() + " : " + this.getAlgue().getNomLatin() + " - Abondance : " + this.getAbondance();
     }
 }
