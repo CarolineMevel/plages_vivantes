@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         Quadrat newQuadrat = new Quadrat();
         ((MyApplication) this.getApplication()).setQuadrat(newQuadrat);
         Log.d(LOG_TAG, "Button clicked!");
-        Intent intent = new Intent(this, Protocole.class);
+        Intent intent = new Intent(this, ChoixProtocole.class);
         startActivity(intent);
     }
 }
