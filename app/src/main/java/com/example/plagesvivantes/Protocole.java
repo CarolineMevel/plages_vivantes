@@ -31,6 +31,8 @@ public class Protocole extends AppCompatActivity {
     TextView t;
     LocationManager locationManager;
     LocationListener listener;
+    Location loc;
+    String dateGlob;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +48,11 @@ public class Protocole extends AppCompatActivity {
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         listener = new LocationListener() {
+
             @Override
             public void onLocationChanged(Location location) {
                 t.setText("Longitude: " + location.getLongitude() + "\n Latitude: " + location.getLatitude());
+                loc = location;
             }
 
             @Override
@@ -133,6 +137,7 @@ public class Protocole extends AppCompatActivity {
                         long date = System.currentTimeMillis();
                         @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy à hh:mm:ss a");
                         String dateString = sdf.format(date);
+                        dateGlob = dateString;
                         tdate.setText("Photo prise le:\n" + dateString);
                         //GPS
                         //noinspection MissingPermission
@@ -157,6 +162,11 @@ public class Protocole extends AppCompatActivity {
     }
 
     public void launchIdentification(View view) {
+        Quadrat newQuadrat = ((MyApplication) this.getApplication()).getQuadrat();
+        newQuadrat.setGPS(loc);
+        newQuadrat.setDate(dateGlob);
+        newQuadrat.setPhoto(imageView);
+        ((MyApplication) this.getApplication()).setQuadrat(newQuadrat);
         Intent intent = new Intent(this, Identification.class);
         startActivity(intent);
 

@@ -11,10 +11,10 @@ public class Quadrat {
     private List<Observation> listObs ;
     private Location GPS ;
     private ImageView photo ;
-    private Date date ;
+    private String date ;
 
     /** Doit être utilisé au moment de la prise de photo pour créer le quadrat qu'on envoit à la fin à la base de données **/
-    public Quadrat (Location l , ImageView i , Date d){
+    public Quadrat (Location l , ImageView i , String d){
         listObs = new ArrayList<>();
         GPS = l ;
         photo = i ;
@@ -25,7 +25,7 @@ public class Quadrat {
         this(null,null,null);
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -49,7 +49,7 @@ public class Quadrat {
         return listObs;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
