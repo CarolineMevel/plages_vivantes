@@ -2,8 +2,10 @@ package com.example.plagesvivantes;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Identification extends AppCompatActivity {
+    ImageView imageView;
     boolean connue ;
     int numAlgue ;
     Algue algue;
@@ -27,7 +30,7 @@ public class Identification extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identification);
-
+        imageView = (ImageView) findViewById(R.id.imageView);
         numAlgue = ((MyApplication) this.getApplication()).getQuadrat().nextNum();
 
         TextView nom = findViewById(R.id.textNumAlgue);
@@ -56,6 +59,17 @@ public class Identification extends AppCompatActivity {
         choixAbondance4.setEnabled(false);
         Button val = findViewById(R.id.buttonValidation);
         val.setEnabled(false);
+
+
+        photoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //IMAGE
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, 0);
+
+            }
+        });
     }
 
     /** A completer avec les noms des vraies algues lorsqu'on aura accès à la base de donnée **/
