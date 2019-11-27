@@ -27,6 +27,7 @@ public class Resume extends AppCompatActivity {
     }
 
     public void newObs(View view) {
+
         Intent intent = new Intent(this, Identification.class);
         startActivity(intent);
     }
