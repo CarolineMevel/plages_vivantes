@@ -15,7 +15,7 @@ public class Resume extends AppCompatActivity {
         setContentView(R.layout.activity_resume);
 
         TextView resume = findViewById(R.id.resumeQuadrat);
-        resume.setText(((MyApplication) this.getApplication()).getQuadrat().toString());
+        resume.setText('\n' + ((MyApplication) this.getApplication()).getQuadrat().toString());
     }
 
     public void endAll(View view) {
