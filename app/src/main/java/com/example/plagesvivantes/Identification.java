@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -30,13 +31,18 @@ public class Identification extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identification);
+
         imageView = (ImageView) findViewById(R.id.imageView);
         numAlgue = ((MyApplication) this.getApplication()).getQuadrat().nextNum();
 
         TextView nom = findViewById(R.id.textNumAlgue);
         nom.setText("Algue n°" + numAlgue + " :");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line , ALGUES );
+        TextView isPhoto = findViewById(R.id.isPhoto);
+        isPhoto.setText("Pas de photo");
+
+        String[] algues = getResources().getStringArray(R.array.algues);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line , algues );
         AutoCompleteTextView choixAlgue = findViewById(R.id.choixAlgue);
         choixAlgue.setAdapter(adapter);
 
@@ -72,10 +78,11 @@ public class Identification extends AppCompatActivity {
         });
     }
 
-    /** A completer avec les noms des vraies algues lorsqu'on aura accès à la base de donnée **/
+    /**
     private static final String[] ALGUES = new String[] {
             "Algue rouge" , "Algue bleu" , "Algue vert" , "Algue orange" , "Salade César"
     };
+     **/
 
     public void algueConnue(View view) {
         connue = true;
@@ -182,7 +189,7 @@ public class Identification extends AppCompatActivity {
             }
             else {
                 if (algue == null){
-                    Observation obs = new Observation( numAlgue, null, abondance , null , false);
+                    Observation obs = new Observation( numAlgue, null, abondance , imageView , false);
                     Quadrat quadrat = ((MyApplication) this.getApplication()).getQuadrat();
                     quadrat.addObs(obs);
                     ((MyApplication) this.getApplication()).setQuadrat(quadrat);
@@ -197,9 +204,8 @@ public class Identification extends AppCompatActivity {
                         t.show();
                     }
                     else {
-                        /** A remplir quand on aura les bonnes valeurs d'algues **/
-                        Algue algue = new Algue(textAlgue,textAlgue,textAlgue);
-                        Observation obs = new Observation( numAlgue , algue , abondance , null , false);
+                        Algue algue = new Algue(textAlgue);
+                        Observation obs = new Observation( numAlgue , algue , abondance , imageView , false);
                         Quadrat quadrat = ((MyApplication) this.getApplication()).getQuadrat();
                         quadrat.addObs(obs);
                         ((MyApplication) this.getApplication()).setQuadrat(quadrat);
@@ -217,9 +223,8 @@ public class Identification extends AppCompatActivity {
                 t.show();
             }
             else {
-                /** A remplir quand on aura les bonnes valeurs d'algues **/
-                Algue algue = new Algue(textAlgue,textAlgue,textAlgue);
-                Observation obs = new Observation( numAlgue , algue , abondance , null , true);
+                Algue algue = new Algue(textAlgue);
+                Observation obs = new Observation( numAlgue , algue , abondance , imageView , true);
                 Quadrat quadrat = ((MyApplication) this.getApplication()).getQuadrat();
                 quadrat.addObs(obs);
                 ((MyApplication) this.getApplication()).setQuadrat(quadrat);

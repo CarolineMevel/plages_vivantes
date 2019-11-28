@@ -188,4 +188,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/photoButton" />
 
+    <TextView
+        android:id="@+id/isPhoto"
+        android:layout_width="17dp"
+        android:layout_height="9dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/photoButton"
+        app:layout_constraintTop_toBottomOf="@+id/photo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

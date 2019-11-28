@@ -11,6 +11,26 @@ public class Algue {
         this.nomCommun = nomCommun;
     }
 
+    public Algue(String chaine){
+        String[] parts = chaine.split("-");
+        String code = parts[0].trim();
+        String latin = "";
+        String commun = "";
+
+        if (parts[1].contains("-")){
+            String[] parts2 = parts[1].split("-");
+            latin = parts2[0].trim();
+            commun = parts2[1].trim();
+        }
+        else {
+            latin = parts[1].trim();
+            commun = null;
+        }
+        this.ref = code;
+        this.nomLatin = latin;
+        this.nomCommun = commun;
+    }
+
     public String getRef() {
         return ref;
     }
@@ -25,7 +45,12 @@ public class Algue {
 
     /** permet d'écrire l'algue dans les menus déroulant comme dans identification par exemple **/
     public String toString(){
-        return this.getRef() + " - " + this.getNomLatin() + " - " + this.getNomCommun();
+        if (this.getNomCommun() != null){
+            return  this.getRef() + " - " + this.getNomLatin() + " - " + this.getNomCommun();
+        }
+        else {
+            return this.getRef() + " - " + this.getNomLatin();
+        }
     }
 
 }

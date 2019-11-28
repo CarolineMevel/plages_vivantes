@@ -1,3 +1,46 @@
 <resources>
     <string name="app_name">Plages Vivantes</string>
+
+    <string-array name="algues">
+        <item>Z1 - Zostera spp. - Zostères</item>
+        <item>V1 - Ulva spp. - Ulves ou Laitue de mer</item>
+        <item>V2 - Enteromorpha - Enteromorphes</item>
+        <item>V3 - Chaetomorpha spp. ou Cladophora - Chaetomorphes ou Cladomorphes</item>
+        <item>V4 - Codium spp. - Codiums</item>
+        <item>B1 - Laminaria hyperborea - Laminaire rugueuse</item>
+        <item>B2 - Laminaria digitata - Laminaire digitée</item>
+        <item>B3 - Undaria pinnatifida - Wakamé</item>
+        <item>B4 - Autre laminaire à stipe cylindrique</item>
+        <item>B5 - Saccharina polyschides - Laminaire à bulbe</item>
+        <item>B6 - Saccharina latissimo - Laminaire sucrée</item>
+        <item>B7 - Autre laminaire</item>
+        <item>B8 - Fucus vesiculosus - Fucus vésiculeux</item>
+        <item>B9 - Ascophyllum nodosum - Ascophylle</item>
+        <item>B10 - Cystoseira spp. - Cystoseires</item>
+        <item>B11 - Sargassum muticum - Sargasse</item>
+        <item>B12 - Calpomenia peregrina - Voleuse d\'huîtes</item>
+        <item>B13 - Autre fucale avec flotteurs</item>
+        <item>B14 - Fucus serratus - Fucus denté</item>
+        <item>B15 - Fucus spiralis - Fucus spiralé</item>
+        <item>B16 - Dictyota dichotoma - Dictyote</item>
+        <item>B17 - Autre fucale à lame aplatie sans flotteurs</item>
+        <item>B18 - Pelvetia canaliculata - Pelvétie</item>
+        <item>B19 - Himanthalia elongata - Himanthale ou Haricot de mer</item>
+        <item>B20 - Bifurcaria bifurcata - Bifurcaire</item>
+        <item>B21 - Halidrys siliquosa - Queue de poulain</item>
+        <item>B22 - Autre fucale à lame cylindrique sans flotteurs</item>
+        <item>R1 - Chondrus cripus ou Mastocarpus stellatus - Pioca frisé</item>
+        <item>R2 - Autre lame aplatie</item>
+        <item>R3 - Delesseria sanguinea ou Phycodrys rubens - Algues feuilles de chaitaignier ou chêne</item>
+        <item>R4 - Palmaria palmata - Dulse</item>
+        <item>R5 - Calliblepharis spp. - Algue ciliée ou à crinière</item>
+        <item>R6 - Porphyra spp. - Nori</item>
+        <item>R7 - Osmundea pinnatifida - Poivre de mer</item>
+        <item>R8 - Lamentaria articulata - Algue saucisson</item>
+        <item>R9 - Autre lame filamenteuse</item>
+        <item>R10 - Soliera chordalis - Cordes de solier</item>
+        <item>R11 - Corallina spp. ou Jania spp. - Corallines</item>
+        <item>R12 - Asparagopsis armata - Algue à crochets</item>
+        <item>R13 - Halopithys incurva</item>
+    </string-array>
 </resources>
