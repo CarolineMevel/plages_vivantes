@@ -18,10 +18,10 @@
         <activity
             android:name=".Identification"
             android:label="Identification"
-            android:parentActivityName=".Protocole">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.plagesvivantes.Protocole" />
+                android:value="com.example.plagesvivantes.MainActivity" />
         </activity>
         <activity
             android:name=".Resume"

@@ -28,6 +28,7 @@ import java.text.SimpleDateFormat;
 public class Protocole extends AppCompatActivity {
 
     ImageView imageView;
+    Bitmap photo;
     TextView t;
     LocationManager locationManager;
     LocationListener listener;
@@ -117,8 +118,8 @@ public class Protocole extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-        imageView.setImageBitmap(bitmap);
+        photo = (Bitmap) data.getExtras().get("data");
+        imageView.setImageBitmap(photo);
         Button btnContinuer = findViewById(R.id.btnContinuer);
         btnContinuer.setVisibility(View.VISIBLE);
 
@@ -165,7 +166,7 @@ public class Protocole extends AppCompatActivity {
         Quadrat newQuadrat = ((MyApplication) this.getApplication()).getQuadrat();
         newQuadrat.setGPS(loc);
         newQuadrat.setDate(dateGlob);
-        newQuadrat.setPhoto(imageView);
+        newQuadrat.setPhoto(photo);
         ((MyApplication) this.getApplication()).setQuadrat(newQuadrat);
         Intent intent = new Intent(this, Identification.class);
         startActivity(intent);
