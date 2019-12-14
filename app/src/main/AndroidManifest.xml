@@ -18,10 +18,10 @@
         <activity
             android:name=".Identification"
             android:label="Identification"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".Resume">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.plagesvivantes.MainActivity" />
+                android:value="com.example.plagesvivantes.Resume" />
         </activity>
         <activity
             android:name=".Resume"
@@ -34,18 +34,18 @@
         <activity
             android:name=".ChoixProtocole"
             android:label="Choix du protocole"
-            android:parentActivityName=".ChoixProtocole">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.plagesvivantes.ChoixProtocole"/>
+                android:value="com.example.plagesvivantes.MainActivity"/>
         </activity>
         <activity
             android:name=".Protocole"
             android:label="Prise de photo"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".ChoixProtocole">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.plagesvivantes.MainActivity" />
+                android:value="com.example.plagesvivantes.ChoixProtocole" />
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
