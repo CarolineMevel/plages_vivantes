@@ -45,6 +45,9 @@ public class Algue {
 
     /** permet d'écrire l'algue dans les menus déroulant comme dans identification par exemple **/
     public String toString(){
+        if (this == null){
+            return "Algue non identifiée";
+        }
         if (this.getNomCommun() != null){
             return  this.getRef() + " - " + this.getNomLatin() + " - " + this.getNomCommun();
         }

@@ -41,7 +41,7 @@
         android:layout_marginTop="10dp"
         android:onClick="algueNonConnue"
         android:text="Je ne connais pas l'algue"
-        android:textColor="#F44336"
+        android:textColor="#FF6961"
         app:layout_constraintStart_toStartOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
@@ -190,11 +190,13 @@
 
     <TextView
         android:id="@+id/isPhoto"
-        android:layout_width="17dp"
-        android:layout_height="9dp"
+        android:layout_width="163dp"
+        android:layout_height="30dp"
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="16dp"
+        android:text="Pas de photo prise"
+        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="@+id/photoButton"
         app:layout_constraintTop_toBottomOf="@+id/photo" />
 

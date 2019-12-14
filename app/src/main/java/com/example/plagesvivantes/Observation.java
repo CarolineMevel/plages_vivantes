@@ -1,5 +1,6 @@
 package com.example.plagesvivantes;
 
+import android.graphics.Bitmap;
 import android.widget.ImageView;
 
 public class Observation {
@@ -7,9 +8,9 @@ public class Observation {
     private boolean connue;
     private Algue algue;
     private int abondance;
-    private ImageView photo;
+    private Bitmap photo;
 
-    public Observation(int n , Algue a, int abondance, ImageView image, boolean c){
+    public Observation(int n , Algue a, int abondance, Bitmap image, boolean c){
         if (abondance > 0 && abondance < 5){
             numero = n ;
             algue = a ;
@@ -31,7 +32,7 @@ public class Observation {
         return abondance;
     }
 
-    public ImageView getPhoto() {
+    public Bitmap getPhoto() {
         return photo;
     }
 
@@ -41,6 +42,13 @@ public class Observation {
 
     /** permet d'écrire les observations dans celle enregistrées **/
     public String toString(){
-        return  "Algue n°" + this.getNumero() + " : " + this.getAlgue().getNomLatin() + " - Abondance : " + this.getAbondance();
+        String nomAlgue = "";
+        if (this.getAlgue() == null){
+            nomAlgue = "Algue non identifiée";
+        }
+        else {
+            nomAlgue = this.getAlgue().getNomLatin();
+        }
+        return  "Algue n°" + this.getNumero() + " : " + nomAlgue + " - Abondance : " + this.getAbondance();
     }
 }

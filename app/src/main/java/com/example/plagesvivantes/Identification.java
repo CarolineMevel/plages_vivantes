@@ -1,10 +1,15 @@
 package com.example.plagesvivantes;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -19,27 +24,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Identification extends AppCompatActivity {
-    ImageView imageView;
+    Bitmap photo;
     boolean connue ;
     int numAlgue ;
     Algue algue;
     int abondance;
-    ImageView photo;
-    Observation obs;
+    boolean nonId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identification);
 
-        imageView = (ImageView) findViewById(R.id.imageView);
         numAlgue = ((MyApplication) this.getApplication()).getQuadrat().nextNum();
+        photo = null;
+        nonId = false;
 
         TextView nom = findViewById(R.id.textNumAlgue);
         nom.setText("Algue n°" + numAlgue + " :");
 
-        TextView isPhoto = findViewById(R.id.isPhoto);
-        isPhoto.setText("Pas de photo");
 
         String[] algues = getResources().getStringArray(R.array.algues);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line , algues );
@@ -48,7 +51,6 @@ public class Identification extends AppCompatActivity {
 
         abondance = -1;
         algue = null;
-        photo = null;
 
         choixAlgue.setEnabled(false);
         Button nonId = findViewById(R.id.nonId);
@@ -66,7 +68,6 @@ public class Identification extends AppCompatActivity {
         Button val = findViewById(R.id.buttonValidation);
         val.setEnabled(false);
 
-
         photoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,6 +77,17 @@ public class Identification extends AppCompatActivity {
 
             }
         });
+
+        /**
+        photoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //IMAGE
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+            }
+        });
+         **/
     }
 
     /**
@@ -146,11 +158,15 @@ public class Identification extends AppCompatActivity {
     }
 
     public void nonIdentifiee(View view){
+        nonId = true;
         algue = null;
         /** pas optimal peut etre modifié **/
         AutoCompleteTextView choixAlgue = findViewById(R.id.choixAlgue);
         choixAlgue.clearListSelection();
+        choixAlgue.setText("Algue non identifiée");
         choixAlgue.setEnabled(false);
+        Button nonId = findViewById(R.id.nonId);
+        nonId.setEnabled(false);
     }
 
     public void abond1(View view){
@@ -174,7 +190,18 @@ public class Identification extends AppCompatActivity {
         return choixAlgue.getText().toString();
     }
 
-    /** PAS FINI **/
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        photo = (Bitmap) data.getExtras().get("data");
+        //imageView.setImageBitmap(bitmap);
+        if ( photo != null ){
+            TextView isPhoto = findViewById(R.id.isPhoto);
+            isPhoto.setText("Photo enregistrée");
+        }
+    }
+
+
     public void validation(View view){
         if (abondance == -1){
             String msg = "Remplissez un indice d'abondance";
@@ -188,8 +215,8 @@ public class Identification extends AppCompatActivity {
                 t.show();
             }
             else {
-                if (algue == null){
-                    Observation obs = new Observation( numAlgue, null, abondance , imageView , false);
+                if (nonId){
+                    Observation obs = new Observation( numAlgue, null, abondance , photo , false);
                     Quadrat quadrat = ((MyApplication) this.getApplication()).getQuadrat();
                     quadrat.addObs(obs);
                     ((MyApplication) this.getApplication()).setQuadrat(quadrat);
@@ -205,7 +232,7 @@ public class Identification extends AppCompatActivity {
                     }
                     else {
                         Algue algue = new Algue(textAlgue);
-                        Observation obs = new Observation( numAlgue , algue , abondance , imageView , false);
+                        Observation obs = new Observation( numAlgue , algue , abondance , photo , false);
                         Quadrat quadrat = ((MyApplication) this.getApplication()).getQuadrat();
                         quadrat.addObs(obs);
                         ((MyApplication) this.getApplication()).setQuadrat(quadrat);
@@ -224,7 +251,7 @@ public class Identification extends AppCompatActivity {
             }
             else {
                 Algue algue = new Algue(textAlgue);
-                Observation obs = new Observation( numAlgue , algue , abondance , imageView , true);
+                Observation obs = new Observation( numAlgue , algue , abondance , photo , true);
                 Quadrat quadrat = ((MyApplication) this.getApplication()).getQuadrat();
                 quadrat.addObs(obs);
                 ((MyApplication) this.getApplication()).setQuadrat(quadrat);

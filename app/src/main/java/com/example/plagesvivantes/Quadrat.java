@@ -1,5 +1,6 @@
 package com.example.plagesvivantes;
 
+import android.graphics.Bitmap;
 import android.location.Location;
 import android.widget.ImageView;
 
@@ -10,11 +11,11 @@ import java.util.List;
 public class Quadrat {
     private List<Observation> listObs ;
     private Location GPS ;
-    private ImageView photo ;
+    private Bitmap photo ;
     private String date ;
 
     /** Doit être utilisé au moment de la prise de photo pour créer le quadrat qu'on envoit à la fin à la base de données **/
-    public Quadrat (Location l , ImageView i , String d){
+    public Quadrat (Location l , Bitmap i , String d){
         listObs = new ArrayList<>();
         GPS = l ;
         photo = i ;
@@ -33,11 +34,11 @@ public class Quadrat {
         this.GPS = GPS;
     }
 
-    public void setPhoto(ImageView photo) {
+    public void setPhoto(Bitmap photo) {
         this.photo = photo;
     }
 
-    public ImageView getPhoto() {
+    public Bitmap getPhoto() {
         return photo;
     }
 
