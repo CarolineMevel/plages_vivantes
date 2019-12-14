@@ -203,6 +203,7 @@ public class Identification extends AppCompatActivity {
 
 
     public void validation(View view){
+        numAlgue = ((MyApplication) this.getApplication()).getQuadrat().nextNum();
         if (abondance == -1){
             String msg = "Remplissez un indice d'abondance";
             Toast t = Toast.makeText(this , msg , Toast.LENGTH_LONG);
@@ -232,12 +233,19 @@ public class Identification extends AppCompatActivity {
                     }
                     else {
                         Algue algue = new Algue(textAlgue);
-                        Observation obs = new Observation( numAlgue , algue , abondance , photo , false);
-                        Quadrat quadrat = ((MyApplication) this.getApplication()).getQuadrat();
-                        quadrat.addObs(obs);
-                        ((MyApplication) this.getApplication()).setQuadrat(quadrat);
-                        Intent intent = new Intent(this, Resume.class);
-                        startActivity(intent);
+                        if (((MyApplication) this.getApplication()).getQuadrat().algueDejaObservee(algue)){
+                            String msg = "Vous avez déja entré une observation pour cette algue";
+                            Toast t = Toast.makeText(this , msg , Toast.LENGTH_LONG);
+                            t.show();
+                        }
+                        else {
+                            Observation obs = new Observation( numAlgue , algue , abondance , photo , false);
+                            Quadrat quadrat = ((MyApplication) this.getApplication()).getQuadrat();
+                            quadrat.addObs(obs);
+                            ((MyApplication) this.getApplication()).setQuadrat(quadrat);
+                            Intent intent = new Intent(this, Resume.class);
+                            startActivity(intent);
+                        }
                     }
                 }
             }
@@ -251,12 +259,19 @@ public class Identification extends AppCompatActivity {
             }
             else {
                 Algue algue = new Algue(textAlgue);
-                Observation obs = new Observation( numAlgue , algue , abondance , photo , true);
-                Quadrat quadrat = ((MyApplication) this.getApplication()).getQuadrat();
-                quadrat.addObs(obs);
-                ((MyApplication) this.getApplication()).setQuadrat(quadrat);
-                Intent intent = new Intent(this, Resume.class);
-                startActivity(intent);
+                if (((MyApplication) this.getApplication()).getQuadrat().algueDejaObservee(algue)){
+                    String msg = "Vous avez déja entré une observation pour cette algue";
+                    Toast t = Toast.makeText(this , msg , Toast.LENGTH_LONG);
+                    t.show();
+                }
+                else {
+                    Observation obs = new Observation( numAlgue , algue , abondance , photo , true);
+                    Quadrat quadrat = ((MyApplication) this.getApplication()).getQuadrat();
+                    quadrat.addObs(obs);
+                    ((MyApplication) this.getApplication()).setQuadrat(quadrat);
+                    Intent intent = new Intent(this, Resume.class);
+                    startActivity(intent);
+                }
             }
         }
     }

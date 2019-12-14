@@ -43,6 +43,13 @@ public class Algue {
         return nomLatin;
     }
 
+    public boolean equals(Object o){
+        return ( o != null
+                && o instanceof Algue
+                && ((Algue)o).getNomLatin().equals(this.getNomLatin())
+                && ((Algue)o).getRef().equals(this.getRef()));
+    }
+
     /** permet d'écrire l'algue dans les menus déroulant comme dans identification par exemple **/
     public String toString(){
         if (this == null){

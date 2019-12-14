@@ -63,6 +63,14 @@ public class Quadrat {
         return this.getListObs().size() + 1 ;
     }
 
+    public boolean algueDejaObservee(Algue a){
+        for (Observation obs : this.getListObs()) {
+            if (a.equals(obs.getAlgue())){
+                return true;
+            }
+        }
+        return false;
+    }
 
     /** peut être utilisé pour écrire toutes les observations les unes  la suite des autres **/
     public String toString(){
